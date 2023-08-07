@@ -61,8 +61,8 @@ public class MQClientAPIFactory implements StartAndShutdown {
             }
             System.setProperty(MixAll.NAMESRV_ADDR_PROPERTY, nameserverAccessConfig.getNamesrvAddr());
         } else {
-            System.setProperty("rocketmq.namesrv.domain", nameserverAccessConfig.getNamesrvDomain());
-            System.setProperty("rocketmq.namesrv.domain.subgroup", nameserverAccessConfig.getNamesrvDomainSubgroup());
+            System.setProperty(MixAll.WS_DOMAIN_KEY, nameserverAccessConfig.getNamesrvDomain());
+            System.setProperty(MixAll.WS_DOMAIN_SUBGROUP_KEY, nameserverAccessConfig.getNamesrvDomainSubgroup());
         }
     }
 
