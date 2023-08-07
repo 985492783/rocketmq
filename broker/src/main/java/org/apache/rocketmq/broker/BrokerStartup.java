@@ -257,8 +257,8 @@ public class BrokerStartup {
         }
         String rmqAddressServerDomain = properties.getProperty("rmqAddressServerDomain", MixAll.WS_DOMAIN_NAME);
         String rmqAddressServerSubGroup = properties.getProperty("rmqAddressServerSubGroup", MixAll.WS_DOMAIN_SUBGROUP);
-        System.setProperty("rocketmq.namesrv.domain", rmqAddressServerDomain);
-        System.setProperty("rocketmq.namesrv.domain.subgroup", rmqAddressServerSubGroup);
+        System.setProperty(MixAll.WS_DOMAIN_KEY, rmqAddressServerDomain);
+        System.setProperty(MixAll.WS_DOMAIN_SUBGROUP_KEY, rmqAddressServerSubGroup);
     }
 
     private static Options buildCommandlineOptions(final Options options) {

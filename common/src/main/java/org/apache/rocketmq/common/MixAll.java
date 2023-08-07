@@ -60,8 +60,10 @@ public class MixAll {
     public static final String MESSAGE_COMPRESS_TYPE = "rocketmq.message.compressType";
     public static final String MESSAGE_COMPRESS_LEVEL = "rocketmq.message.compressLevel";
     public static final String DEFAULT_NAMESRV_ADDR_LOOKUP = "jmenv.tbsite.net";
-    public static final String WS_DOMAIN_NAME = System.getProperty("rocketmq.namesrv.domain", DEFAULT_NAMESRV_ADDR_LOOKUP);
-    public static final String WS_DOMAIN_SUBGROUP = System.getProperty("rocketmq.namesrv.domain.subgroup", "nsaddr");
+    public static final String WS_DOMAIN_KEY = "rocketmq.namesrv.domain";
+    public static final String WS_DOMAIN_SUBGROUP_KEY = "rocketmq.namesrv.domain.subgroup";
+    public static final String WS_DOMAIN_NAME = System.getProperty(WS_DOMAIN_KEY, DEFAULT_NAMESRV_ADDR_LOOKUP);
+    public static final String WS_DOMAIN_SUBGROUP = System.getProperty(MixAll.WS_DOMAIN_SUBGROUP_KEY, "nsaddr");
     public static final String DEFAULT_PRODUCER_GROUP = "DEFAULT_PRODUCER";
     public static final String DEFAULT_CONSUMER_GROUP = "DEFAULT_CONSUMER";
     public static final String TOOLS_CONSUMER_GROUP = "TOOLS_CONSUMER";
@@ -136,8 +138,8 @@ public class MixAll {
     }
 
     public static String getWSAddr() {
-        String wsDomainName = System.getProperty("rocketmq.namesrv.domain", DEFAULT_NAMESRV_ADDR_LOOKUP);
-        String wsDomainSubgroup = System.getProperty("rocketmq.namesrv.domain.subgroup", "nsaddr");
+        String wsDomainName = System.getProperty(MixAll.WS_DOMAIN_KEY, DEFAULT_NAMESRV_ADDR_LOOKUP);
+        String wsDomainSubgroup = System.getProperty(MixAll.WS_DOMAIN_SUBGROUP_KEY, "nsaddr");
         String wsAddr = "http://" + wsDomainName + ":8080/rocketmq/" + wsDomainSubgroup;
         if (wsDomainName.indexOf(":") > 0) {
             wsAddr = "http://" + wsDomainName + "/rocketmq/" + wsDomainSubgroup;

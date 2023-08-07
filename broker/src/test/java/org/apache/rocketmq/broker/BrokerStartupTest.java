@@ -39,15 +39,15 @@ public class BrokerStartupTest {
             properties.put("rmqAddressServerDomain", "value1");
             properties.put("rmqAddressServerSubGroup", "value2");
             method.invoke(null, properties);
-            Assert.assertEquals("value1", System.getProperty("rocketmq.namesrv.domain"));
-            Assert.assertEquals("value2", System.getProperty("rocketmq.namesrv.domain.subgroup"));
+            Assert.assertEquals("value1", System.getProperty(MixAll.WS_DOMAIN_KEY));
+            Assert.assertEquals("value2", System.getProperty(MixAll.WS_DOMAIN_SUBGROUP_KEY));
         }
         {
             properties.put("rmqAddressServerDomain", MixAll.WS_DOMAIN_NAME);
             properties.put("rmqAddressServerSubGroup", MixAll.WS_DOMAIN_SUBGROUP);
             method.invoke(null, properties);
-            Assert.assertEquals(MixAll.WS_DOMAIN_NAME, System.getProperty("rocketmq.namesrv.domain"));
-            Assert.assertEquals(MixAll.WS_DOMAIN_SUBGROUP, System.getProperty("rocketmq.namesrv.domain.subgroup"));
+            Assert.assertEquals(MixAll.WS_DOMAIN_NAME, System.getProperty(MixAll.WS_DOMAIN_KEY));
+            Assert.assertEquals(MixAll.WS_DOMAIN_SUBGROUP, System.getProperty(MixAll.WS_DOMAIN_SUBGROUP_KEY));
         }
 
 
